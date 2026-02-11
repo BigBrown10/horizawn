@@ -5,6 +5,18 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [apiResponse, setApiResponse] = useState<string | null>(null);
+
+  const fetchApiData = async () => {
+    try {
+      const res = await fetch('/api/hello');
+      const text = await res.text();
+      setApiResponse(text);
+    } catch (error: any) {
+      console.error('Error fetching API:', error);
+      setApiResponse(`Error fetching API data: ${error.message}`);
+    }
+  };
 
   return (
     <>
@@ -24,6 +36,11 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <br />
+        <button onClick={fetchApiData}>
+          Call API
+        </button>
+        {apiResponse && <p>{apiResponse}</p>}
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
