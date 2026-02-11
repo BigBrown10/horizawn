@@ -1,42 +1,182 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Styles for App.tsx components - Klarna/Apple Inspired */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: none; /* Override #root max-width */
+  margin: 0;
+  padding: 0;
+  background-color: #f6f7f9; /* Light, subtle background */
+  color: #1a1a1a; /* Default text color */
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-container {
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+
+.app-header {
+  background-color: #ffffff; /* White header background */
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-header {
+    background-color: #1c1c1c; /* Darker header for dark mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333333; /* Darker title text */
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-title {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.main-content {
+  flex-grow: 1;
   padding: 2rem;
+  max-width: 1200px; /* Constrain content width */
+  width: 100%;
+  margin: 2rem auto; /* Center main content */
+}
+
+.dashboard-section {
+  text-align: left;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dashboard-title {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.summary-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background-color: #ffffff; /* White card background */
+  border-radius: 12px; /* Rounded corners for cards */
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More prominent shadow for cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  .summary-card {
+    background-color: #1c1c1c; /* Darker card for dark mode */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.summary-card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #555555; /* Muted title color */
+}
+
+@media (prefers-color-scheme: dark) {
+  .summary-card h3 {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.summary-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333333; /* Prominent value color */
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .summary-card .value {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.summary-card .status {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #28a745; /* Green for positive status */
+  background-color: #e6ffe6;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  align-self: flex-start; /* Align status tag to start */
+}
+
+@media (prefers-color-scheme: dark) {
+  .summary-card .status {
+    color: #90ee90;
+    background-color: #1a361a;
+  }
+}
+
+
+/* API Test Card Specific Styles */
+.api-test-card {
+  align-items: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.api-test-card h3 {
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.api-button {
+  background-color: #646cff; /* Primary action color */
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.api-button:hover {
+  background-color: #535bf2;
+}
+
+.api-response {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #333333;
+  word-break: break-word; /* Ensure long responses wrap */
+}
+
+@media (prefers-color-scheme: dark) {
+  .api-response {
+    color: rgba(255, 255, 255, 0.8);
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

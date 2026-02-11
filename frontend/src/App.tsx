@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css'; // Will be updated
+import './index.css'; // Global styles
 
 function App() {
-  const [count, setCount] = useState(0)
   const [apiResponse, setApiResponse] = useState<string | null>(null);
 
   const fetchApiData = async () => {
@@ -19,34 +17,46 @@ function App() {
   };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-        <br />
-        <button onClick={fetchApiData}>
-          Call API
-        </button>
-        {apiResponse && <p>{apiResponse}</p>}
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="app-title">Financial Horizon</h1>
+        <nav className="main-nav">
+          {/* Future navigation items will go here */}
+        </nav>
+      </header>
+      <main className="main-content">
+        <section className="dashboard-section">
+          <h2 className="dashboard-title">Your Financial Pulse</h2>
+          <div className="summary-cards-grid">
+            {/* Placeholder for Projected Net Worth */}
+            <div className="summary-card">
+              <h3>Projected Net Worth (20 Years)</h3>
+              <p className="value">$X,XXX,XXX</p>
+              <span className="status">On Track</span>
+            </div>
+            {/* Placeholder for Current Net Worth */}
+            <div className="summary-card">
+              <h3>Current Net Worth</h3>
+              <p className="value">$X,XXX,XXX</p>
+            </div>
+            {/* Placeholder for Savings Growth */}
+            <div className="summary-card">
+              <h3>Savings Growth</h3>
+              <p className="value">+X% Annually</p>
+            </div>
+            {/* API Test Card - Integrated for now */}
+            <div className="summary-card api-test-card">
+              <h3>API Test</h3>
+              <button onClick={fetchApiData} className="api-button">
+                Call API: /api/hello
+              </button>
+              {apiResponse && <p className="api-response">{apiResponse}</p>}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

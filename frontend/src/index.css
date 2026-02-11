@@ -1,11 +1,13 @@
+/* Global Styles for Klarna/Apple-inspired UI */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif; /* A clean, modern sans-serif font */
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #1a1a1a; /* Darker text for better readability on light backgrounds */
+  background-color: #f6f7f9; /* Light, neutral background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,26 +15,37 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Basic Reset */
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%; /* Ensure root takes full width */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff; /* Standard link color */
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
 button {
@@ -42,9 +55,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #e0e0e0; /* Light button background */
   cursor: pointer;
   transition: border-color 0.25s;
+  color: #1a1a1a; /* Dark text on buttons */
 }
 button:hover {
   border-color: #646cff;
@@ -54,15 +68,17 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* Dark mode adjustments (optional, based on system preference) */
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #1a1a1a;
+    color: rgba(255, 255, 255, 0.87);
   }
 }
