@@ -13,7 +13,7 @@ export default async function (request: VercelRequest, response: VercelResponse)
     const result = await client.query('SELECT NOW() as now');
     const dbTime = result.rows[0].now;
     response.status(200).send(`Hello ${name}! Connected to DB at: ${dbTime}`);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Database connection or query error:', error);
     response.status(500).send(`Error connecting to the database: ${error.message}`);
   } finally {
